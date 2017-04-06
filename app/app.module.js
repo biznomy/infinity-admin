@@ -15,6 +15,7 @@ var dashboard_module_1 = require("./dashboard/dashboard.module");
 var sidebar_module_1 = require("./sidebar/sidebar.module");
 var footer_module_1 = require("./shared/footer/footer.module");
 var navbar_module_1 = require("./shared/navbar/navbar.module");
+var log_component_1 = require("./authModule/login/log.component");
 var common_1 = require("@angular/common");
 var AppModule = (function () {
     function AppModule() {
@@ -31,7 +32,7 @@ AppModule = __decorate([
             footer_module_1.FooterModule,
             router_1.RouterModule.forRoot([])
         ],
-        declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent],
+        declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, log_component_1.loginComponent],
         providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
         bootstrap: [app_component_1.AppComponent]
     })

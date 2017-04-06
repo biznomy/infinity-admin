@@ -10,6 +10,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
+import { loginComponent} from './authModule/login/log.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
@@ -22,7 +23,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         FooterModule,
         RouterModule.forRoot([])
     ],
-    declarations: [ AppComponent, DashboardComponent ],
+    declarations: [ AppComponent, DashboardComponent ,loginComponent],
     providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap:    [ AppComponent ]
 })
