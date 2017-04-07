@@ -17,7 +17,6 @@ exports.MODULE_ROUTES = [
     { path: 'typography', component: typography_component_1.TypographyComponent },
     { path: 'maps', component: maps_component_1.MapsComponent },
     { path: 'upgrade', component: upgrade_component_1.UpgradeComponent },
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 exports.MODULE_COMPONENTS = [
     home_component_1.HomeComponent,
