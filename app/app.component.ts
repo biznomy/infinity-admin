@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LocationStrategy, PlatformLocation, Location} from '@angular/common';
+import {Router,Params , RouterModule }   from '@angular/router';
+
 
 declare var $:any;
 
@@ -10,10 +12,9 @@ declare var $:any;
 })
 
 export class AppComponent implements OnInit{
+    islogin : boolean;
     location: Location;
-    constructor(location:Location) {
-        this.location = location;
-    }
+  
     ngOnInit(){
         $.getScript('../assets/js/material-dashboard.js');
         $.getScript('../assets/js/initMenu.js');
@@ -27,5 +28,20 @@ export class AppComponent implements OnInit{
         else {
             return true;
         }
+    }
+    constructor( private router: Router ,location: Location) {
+     this.location = location;
+    this.islogin = true;  
+     this.router.navigate(['/dashboard']);
+}
+    submitValue(email,password){
+   // if(email.indexOf("admin") > -1 && password === "admin"){
+      this.islogin = true;  
+     var nav = this.router;
+     setTimeout(function(){
+     nav.navigate(['/dashboard']);
+     },500)
+    
+    //}
     }
 }

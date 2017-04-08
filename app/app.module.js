@@ -9,13 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var dashboard_component_1 = require("./dashboard/dashboard.component");
 var dashboard_module_1 = require("./dashboard/dashboard.module");
 var sidebar_module_1 = require("./sidebar/sidebar.module");
 var footer_module_1 = require("./shared/footer/footer.module");
 var navbar_module_1 = require("./shared/navbar/navbar.module");
-var log_component_1 = require("./authModule/login/log.component");
 var common_1 = require("@angular/common");
 var AppModule = (function () {
     function AppModule() {
@@ -30,9 +30,10 @@ AppModule = __decorate([
             sidebar_module_1.SidebarModule,
             navbar_module_1.NavbarModule,
             footer_module_1.FooterModule,
-            router_1.RouterModule.forRoot([])
+            router_1.RouterModule.forRoot([]),
+            http_1.HttpModule
         ],
-        declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, log_component_1.loginComponent],
+        declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent],
         providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
         bootstrap: [app_component_1.AppComponent]
     })

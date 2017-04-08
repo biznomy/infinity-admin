@@ -11,9 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
+var router_1 = require("@angular/router");
 var AppComponent = (function () {
-    function AppComponent(location) {
+    function AppComponent(router, location) {
+        this.router = router;
         this.location = location;
+        this.islogin = true;
+        this.router.navigate(['/dashboard']);
     }
     AppComponent.prototype.ngOnInit = function () {
         $.getScript('../assets/js/material-dashboard.js');
@@ -29,6 +33,15 @@ var AppComponent = (function () {
             return true;
         }
     };
+    AppComponent.prototype.submitValue = function (email, password) {
+        // if(email.indexOf("admin") > -1 && password === "admin"){
+        this.islogin = true;
+        var nav = this.router;
+        setTimeout(function () {
+            nav.navigate(['/dashboard']);
+        }, 500);
+        //}
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -37,7 +50,7 @@ AppComponent = __decorate([
         moduleId: module.id,
         templateUrl: 'app.component.html'
     }),
-    __metadata("design:paramtypes", [common_1.Location])
+    __metadata("design:paramtypes", [router_1.Router, common_1.Location])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
