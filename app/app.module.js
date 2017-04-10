@@ -31,7 +31,7 @@ AppModule = __decorate([
             navbar_module_1.NavbarModule,
             footer_module_1.FooterModule,
             router_1.RouterModule.forRoot([]),
-            http_1.HttpModule
+            http_1.HttpModule,
         ],
         declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent],
         providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],

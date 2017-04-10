@@ -135,7 +135,7 @@
                             <table class="table table-hover">
                                 <thead class="text-warning">
                                     <tr>
-                                        <th>ID</th>
+                                        <th>S.No</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Country</th>
@@ -161,11 +161,11 @@
                                         <td>Netherlands</td>
                                     </tr> -->
                                   
-                                    <tr *ngFor="let p of users">
-                                        <td>{{p.id}}</td>
+                                    <tr *ngFor="let p of users;let s = index">
+                                        <td>{{(s+1)}}</td>
                                         <td>{{p.name}}</td>
                                         <td>{{p.email}}</td>
-                                        <td>{{p.address.city}}</td>
+                                        <td>{{p.state}}</td>
                                     </tr>
                                       
                                 </tbody>

@@ -15,13 +15,13 @@ require("rxjs/add/operator/map");
 var PostsService = (function () {
     function PostsService(http) {
         this.http = http;
-        console.log("post service initializied");
+        this._url = "http://192.168.1.4:3200";
     }
     PostsService.prototype.getPost = function () {
         return this.http.get('https://jsonplaceholder.typicode.com/Posts').map(function (res) { return res.json(); });
     };
     PostsService.prototype.getUser = function () {
-        return this.http.get('https://jsonplaceholder.typicode.com/users').map(function (res) { return res.json(); });
+        return this.http.get(this._url + "/admin").map(function (res) { return res.json(); });
     };
     return PostsService;
 }());

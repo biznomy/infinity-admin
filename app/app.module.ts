@@ -2,6 +2,9 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
 import { AppComponent }   from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -14,15 +17,15 @@ import { NavbarModule} from './shared/navbar/navbar.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
-    imports:      [
+    imports: [
         BrowserModule,
         DashboardModule,
         SidebarModule,
         NavbarModule,
         FooterModule,
         RouterModule.forRoot([]),
-        HttpModule
-
+        HttpModule,
+       
     ],
     declarations: [ AppComponent, DashboardComponent],
     providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],

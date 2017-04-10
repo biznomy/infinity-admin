@@ -36,11 +36,11 @@ export class HomeComponent implements OnInit{
 }
 
 interface User{
-    id : number ;
+    _id : number ;
     name : string ;
     email : string ;
-    address: Address ;
-
+    //address: Address ;
+    state : string;
 }
 interface Post{
     id : string;

@@ -1,3 +1,12 @@
+<form (submit)="searchValue(searchString.value)" class="navbar-form navbar-right" role="search">
+                <div class="form-group form-black is-empty">
+                    <input type="text" class="form-control" placeholder="Search" #searchString>
+                    <span class="material-input"></span>
+                </div>
+                <button (click)="searchValue(searchString.value)" class="btn btn-white btn-round btn-just-icon">
+                    <i class="material-icons">search</i><div class="ripple-container"></div>
+                </button>
+            </form>
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
@@ -11,49 +20,22 @@
                         <table class="table">
                             <thead class="text-danger">
                                 <tr>
+                                    <th></th>
+                                    <th>Id</th>
+                                    <th>Email</th>
                                     <th>Name</th>
-                                    <th>Country</th>
-                                    <th>City</th>
-                                    <th>Salary</th>
+                                    <th>State</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Dakota Rice</td>
-                                    <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td class="text-danger">$36,738</td>
+                                <tr *ngFor="let p of users">
+                                   <td><img src="{{p.photoURL}}" style="width:50px"/></td>
+                                    <td>{{p._id}}</td>
+                                    <td>{{p.email}}</td>
+                                    <td>{{p.name}}</td>
+                                    <td class="text-danger">{{p.state}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Minerva Hooper</td>
-                                    <td>Curaçao</td>
-                                    <td>Sinaai-Waas</td>
-                                    <td class="text-danger">$23,789</td>
-                                </tr>
-                                <tr>
-                                    <td>Sage Rodriguez</td>
-                                    <td>Netherlands</td>
-                                    <td>Baileux</td>
-                                    <td class="text-danger">$56,142</td>
-                                </tr>
-                                <tr>
-                                    <td>Philip Chaney</td>
-                                    <td>Korea, South</td>
-                                    <td>Overland Park</td>
-                                    <td class="text-danger">$38,735</td>
-                                </tr>
-                                <tr>
-                                    <td>Doris Greene</td>
-                                    <td>Malawi</td>
-                                    <td>Feldkirchen in Kärnten</td>
-                                    <td class="text-danger">$63,542</td>
-                                </tr>
-                                <tr>
-                                    <td>Mason Porter</td>
-                                    <td>Chile</td>
-                                    <td>Gloucester</td>
-                                    <td class="text-danger">$78,615</td>
-                                </tr>
+                               
                             </tbody>
                         </table>
 
@@ -61,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="col-md-12">
+          <!--  <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="card-header" data-background-color="red">
                         <h4 class="title">Table on Plain Background</h4>
@@ -125,7 +107,8 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
+ 
