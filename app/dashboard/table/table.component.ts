@@ -10,24 +10,32 @@ import { PostsService } from './../../services/post.service';
 
 export class TableComponent{
    users : User[];
+   showsearch:boolean;
    constructor (private postsService : PostsService){
     this.postsService.getUser().subscribe(users => {
     this.users = users;
-   	
+   	this.showsearch = false;
     })
+    this.showsearch = false;
    }
    searchValue(ds){
-   alert("hi");
+    this.postsService.getSearch(ds).subscribe(users => {
+    this.users = users.data;
+    this.showsearch = true;
+    })
    return false;
    }
-   test21(){
-   alert("joo");
+   resetData(){
+   this.postsService.getUser().subscribe(users => {
+    this.users = users;
+    this.showsearch = false;
+    })
    }
 }
 interface User{
     id : number ;
-    //photoURL : string;
+    photoURL : string;
     name : string ;
     email : string ;
-  //  state : string;
+    state : string;
 }

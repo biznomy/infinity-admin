@@ -1,3 +1,11 @@
+<style>
+    .reset{
+    float: right;
+    background: inherit;
+    border: 1px solid #e5e5e5;
+    border-radius: 10%;
+    }
+</style>
 <form (submit)="searchValue(searchString.value)" class="navbar-form navbar-right" role="search">
                 <div class="form-group form-black is-empty">
                     <input type="text" class="form-control" placeholder="Search" #searchString>
@@ -13,7 +21,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" data-background-color="red">
-                        <h4 class="title">Simple Table</h4>
+                        <h4 class="title">Simple Table<button class="reset" *ngIf="showsearch" (click)="resetData()">Reset</button></h4>
                         <p class="category">Here is a subtitle for this table</p>
                     </div>
                     <div class="card-content table-responsive">

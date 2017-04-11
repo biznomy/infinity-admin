@@ -17,14 +17,24 @@ var TableComponent = (function () {
         this.postsService = postsService;
         this.postsService.getUser().subscribe(function (users) {
             _this.users = users;
+            _this.showsearch = false;
         });
+        this.showsearch = false;
     }
     TableComponent.prototype.searchValue = function (ds) {
-        alert("hi");
+        var _this = this;
+        this.postsService.getSearch(ds).subscribe(function (users) {
+            _this.users = users.data;
+            _this.showsearch = true;
+        });
         return false;
     };
-    TableComponent.prototype.test21 = function () {
-        alert("joo");
+    TableComponent.prototype.resetData = function () {
+        var _this = this;
+        this.postsService.getUser().subscribe(function (users) {
+            _this.users = users;
+            _this.showsearch = false;
+        });
     };
     return TableComponent;
 }());

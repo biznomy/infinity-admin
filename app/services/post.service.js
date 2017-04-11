@@ -15,14 +15,17 @@ require("rxjs/add/operator/map");
 var PostsService = (function () {
     function PostsService(http) {
         this.http = http;
-        this._url = "http://192.168.1.4:3200";
+        this._url = "http://localhost:3210";
     }
     PostsService.prototype.getPost = function () {
         return this.http.get('https://jsonplaceholder.typicode.com/Posts').map(function (res) { return res.json(); });
     };
     PostsService.prototype.getUser = function () {
-        //return this.http.get(this._url+"/admin").map(res => res.json());
-        return this.http.get('https://jsonplaceholder.typicode.com/users').map(function (res) { return res.json(); });
+        return this.http.get(this._url + "/admin").map(function (res) { return res.json(); });
+        //return this.http.get('https://jsonplaceholder.typicode.com/users').map(res => res.json());
+    };
+    PostsService.prototype.getSearch = function (text) {
+        return this.http.get(this._url + "/admin/search/abc?text=" + text).map(function (res) { return res.json(); });
     };
     return PostsService;
 }());
