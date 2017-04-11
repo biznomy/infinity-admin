@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { PostsService } from './../../services/post.service';
-import { InfiniteScroll } from 'angular2-infinite-scroll';
 
 @Component({
     selector: 'table-cmp',
@@ -21,11 +20,14 @@ export class TableComponent{
    alert("hi");
    return false;
    }
+   test21(){
+   alert("joo");
+   }
 }
 interface User{
-    _id : number ;
-    photoURL : string;
+    id : number ;
+    //photoURL : string;
     name : string ;
     email : string ;
-    state : string;
+  //  state : string;
 }

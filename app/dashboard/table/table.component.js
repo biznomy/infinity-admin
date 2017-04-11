@@ -23,6 +23,9 @@ var TableComponent = (function () {
         alert("hi");
         return false;
     };
+    TableComponent.prototype.test21 = function () {
+        alert("joo");
+    };
     return TableComponent;
 }());
 TableComponent = __decorate([

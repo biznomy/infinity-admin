@@ -28,7 +28,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let p of users">
+                                <tr *ngFor="let p of users | paginate: {itemsPerPage: 10, currentPage:page, id: '1'}; let i = index">
                                    <td><img src="{{p.photoURL}}" style="width:50px"/></td>
                                     <td>{{p._id}}</td>
                                     <td>{{p.email}}</td>
@@ -109,6 +109,11 @@
                 </div>
             </div>-->
         </div>
+         <pagination-controls (pageChange)="page = $event" id="1"
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true">
+                </pagination-controls>
     </div>
 </div>
  

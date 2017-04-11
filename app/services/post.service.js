@@ -21,7 +21,8 @@ var PostsService = (function () {
         return this.http.get('https://jsonplaceholder.typicode.com/Posts').map(function (res) { return res.json(); });
     };
     PostsService.prototype.getUser = function () {
-        return this.http.get(this._url + "/admin").map(function (res) { return res.json(); });
+        //return this.http.get(this._url+"/admin").map(res => res.json());
+        return this.http.get('https://jsonplaceholder.typicode.com/users').map(function (res) { return res.json(); });
     };
     return PostsService;
 }());

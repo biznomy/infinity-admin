@@ -185,7 +185,7 @@
                                 <div class="tab-pane active" id="profile">
                                     <table class="table">
                                         <tbody>
-                                            <tr *ngFor="let p of posts">
+                                            <tr *ngFor="let p of posts | paginate: {itemsPerPage: 5, currentPage:page, id: '1'}; let i = index">
                                                 <td>
                                                     <div class="checkbox">
                                                         <label>
@@ -206,6 +206,11 @@
                         
                                 </tbody>
                             </table>
+                             <pagination-controls (pageChange)="page = $event" id="1"
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true">
+                </pagination-controls>
                             </div></div>
                     </div>
                     </div>
