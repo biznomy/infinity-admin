@@ -17,11 +17,11 @@ export class HomeComponent implements OnInit{
    constructor (private postsService : PostsService){
     this.postsService.getPost().subscribe(post => {
     this.posts = post;
-    console.log(this.posts)
+   
     })
     this.postsService.getUser().subscribe(users => {
     this.users = users;
-    console.log(this.users)
+   
     })
    }
     ngOnInit(){

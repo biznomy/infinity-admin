@@ -36,7 +36,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let p of users | paginate: {itemsPerPage: 10, currentPage:page, id: '1'}; let i = index">
+                                <tr *ngFor="let p of users | paginate: {itemsPerPage: 10, currentPage:page, id: '1'}; let i = index" 
+                                [routerLink]="['/user', p]">
                                    <td><img src="{{p.photoURL}}" style="width:50px"/></td>
                                     <td>{{p._id}}</td>
                                     <td>{{p.email}}</td>

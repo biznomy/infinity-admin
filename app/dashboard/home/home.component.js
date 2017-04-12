@@ -18,11 +18,9 @@ var HomeComponent = (function () {
         this.postsService = postsService;
         this.postsService.getPost().subscribe(function (post) {
             _this.posts = post;
-            console.log(_this.posts);
         });
         this.postsService.getUser().subscribe(function (users) {
             _this.users = users;
-            console.log(_this.users);
         });
     }
     HomeComponent.prototype.ngOnInit = function () {

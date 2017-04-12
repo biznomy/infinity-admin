@@ -13,10 +13,10 @@ export class PostsService{
 	return this.http.get('https://jsonplaceholder.typicode.com/Posts').map(res => res.json());
 	}
 	getUser(){
-	return this.http.get(this._url+"/admin").map(res => res.json());
+	return this.http.get(this._url+"/admin/user/list").map(res => res.json());
 	//return this.http.get('https://jsonplaceholder.typicode.com/users').map(res => res.json());
 	}
 	getSearch(text){
-	return this.http.get(this._url+"/admin/search/abc?text="+text).map(res => res.json());
+	return this.http.get(this._url+"/admin/search/user?text="+text).map(res => res.json());
 	}
 }

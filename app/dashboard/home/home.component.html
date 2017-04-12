@@ -161,7 +161,7 @@
                                         <td>Netherlands</td>
                                     </tr> -->
                                   
-                                    <tr *ngFor="let p of users;let s = index">
+                                    <tr *ngFor="let p of users;let s = index" [routerLink]="['/user', p]">
                                         <td>{{(s+1)}}</td>
                                         <td>{{p.name}}</td>
                                         <td>{{p.email}}</td>
