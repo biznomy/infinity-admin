@@ -14,16 +14,10 @@ var initDemo = require("../../../assets/js/charts.js");
 var post_service_1 = require("./../../services/post.service");
 var HomeComponent = (function () {
     function HomeComponent(postsService) {
-        var _this = this;
         this.postsService = postsService;
-        this.postsService.getPost().subscribe(function (post) {
-            _this.posts = post;
-        });
-        this.postsService.getUser().subscribe(function (users) {
-            _this.users = users;
-        });
     }
     HomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
         // $('[data-toggle="checkbox"]').each(function () {
         //     if($(this).data('toggle') == 'switch') return;
         //
@@ -31,6 +25,18 @@ var HomeComponent = (function () {
         //     $checkbox.checkbox();
         // });
         initDemo();
+        this.postsService.getPost().subscribe(function (post) {
+            _this.posts = post;
+        });
+        this.postsService.getUser().subscribe(function (users) {
+            _this.users = users;
+        });
+        this.postsService.getAdmin("dashboard").subscribe(function (count) {
+            _this.totalUsersCount = count.totalUsersCount;
+            _this.totalPostsCount = count.totalPostsCount;
+            _this.totalCommentsCount = count.totalCommentsCount;
+            _this.totalLikesCount = count.totalLikesCount;
+        });
     };
     return HomeComponent;
 }());

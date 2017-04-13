@@ -1,3 +1,4 @@
+import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
@@ -13,20 +14,21 @@ import { PostsService } from './../../services/post.service';
 
 export class UserComponent implements OnInit{
 	info : Info;
+    _id : string;
     
 
     ngOnInit(){
         // $.getScript('../../../assets/js/material-dashboard.js');
-       this.info = this.route.params.value
-     
+    
         }
       
-   constructor(private route: ActivatedRoute, private location: Location) {
-      
+   constructor(private route: ActivatedRoute, private location: Location, private postsService : PostsService) { 
+        this._id = route.snapshot.params['_id']
+        alert(this._id)
      }
 }
 interface Info{
-	id : string;
+	_id : string;
     photoURL : string;
     name : string;
     email : string;

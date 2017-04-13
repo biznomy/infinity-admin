@@ -14,15 +14,12 @@ declare var $:any;
 export class HomeComponent implements OnInit{
    posts :Post[];
    users : User[];
+   totalUsersCount : number;
+   totalPostsCount: number;
+   totalCommentsCount: number;
+   totalLikesCount: number ;
    constructor (private postsService : PostsService){
-    this.postsService.getPost().subscribe(post => {
-    this.posts = post;
    
-    })
-    this.postsService.getUser().subscribe(users => {
-    this.users = users;
-   
-    })
    }
     ngOnInit(){
         // $('[data-toggle="checkbox"]').each(function () {
@@ -32,9 +29,23 @@ export class HomeComponent implements OnInit{
         //     $checkbox.checkbox();
         // });
         initDemo();
-    }
+            this.postsService.getPost().subscribe(post => {
+                this.posts = post;
+               
+                })
+            this.postsService.getUser().subscribe(users => {
+                this.users = users;
+               
+                })
+            this.postsService.getAdmin("dashboard").subscribe(count => {
+                this.totalUsersCount = count.totalUsersCount;
+                this.totalPostsCount = count.totalPostsCount;
+            this.totalCommentsCount =count.totalCommentsCount;
+                this.totalLikesCount = count.totalLikesCount;
+                })
+   
 }
-
+}
 interface User{
     _id : number ;
     name : string ;

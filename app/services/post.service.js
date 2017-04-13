@@ -27,6 +27,9 @@ var PostsService = (function () {
     PostsService.prototype.getSearch = function (text) {
         return this.http.get(this._url + "/admin/search/user?text=" + text).map(function (res) { return res.json(); });
     };
+    PostsService.prototype.getAdmin = function (text) {
+        return this.http.get(this._url + "/admin/" + text).map(function (res) { return res.json(); });
+    };
     return PostsService;
 }());
 PostsService = __decorate([

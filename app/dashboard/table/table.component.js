@@ -17,6 +17,7 @@ var TableComponent = (function () {
         this.postsService = postsService;
         this.postsService.getUser().subscribe(function (users) {
             _this.users = users;
+            console.log(_this.users);
             _this.showsearch = false;
         });
         this.showsearch = false;

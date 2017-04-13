@@ -19,4 +19,7 @@ export class PostsService{
 	getSearch(text){
 	return this.http.get(this._url+"/admin/search/user?text="+text).map(res => res.json());
 	}
+	getAdmin(text){
+	return this.http.get(this._url+"/admin/"+text).map(res => res.json());
+	}
 }

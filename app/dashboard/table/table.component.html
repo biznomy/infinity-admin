@@ -33,16 +33,17 @@
                                     <th>Email</th>
                                     <th>Name</th>
                                     <th>State</th>
+                                    <th>State</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let p of users | paginate: {itemsPerPage: 10, currentPage:page, id: '1'}; let i = index" 
-                                [routerLink]="['/user', p]">
+                                <tr *ngFor="let p of users | paginate: {itemsPerPage: 10, currentPage:page, id: '1'}; let i = index">
                                    <td><img src="{{p.photoURL}}" style="width:50px"/></td>
                                     <td>{{p._id}}</td>
                                     <td>{{p.email}}</td>
                                     <td>{{p.name}}</td>
                                     <td class="text-danger">{{p.state}}</td>
+                                    <td [routerLink]="['/user',p._id]">gf</td>
                                 </tr>
                                
                             </tbody>

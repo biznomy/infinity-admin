@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
 var ng2_pagination_1 = require("ng2-pagination"); //importing ng2-pagination
+var numberformat_pipe_1 = require("./custom_pipes/numberformat.pipe");
 var app_component_1 = require("./app.component");
 var dashboard_component_1 = require("./dashboard/dashboard.component");
 var dashboard_module_1 = require("./dashboard/dashboard.module");
@@ -35,7 +36,7 @@ AppModule = __decorate([
             http_1.HttpModule,
             ng2_pagination_1.Ng2PaginationModule
         ],
-        declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent],
+        declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, numberformat_pipe_1.TitleCasePipe],
         providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
         bootstrap: [app_component_1.AppComponent]
     })

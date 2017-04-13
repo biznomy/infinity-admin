@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var common_1 = require("@angular/common");
 var http_1 = require("@angular/http");
 var platform_browser_1 = require("@angular/platform-browser");
 var ng2_pagination_1 = require("ng2-pagination"); //importing ng2-pagination
@@ -23,6 +24,7 @@ DashboardModule = __decorate([
             router_1.RouterModule.forChild(dashboard_routes_1.MODULE_ROUTES),
             http_1.HttpModule,
             platform_browser_1.BrowserModule,
+            common_1.CommonModule,
             ng2_pagination_1.Ng2PaginationModule
         ],
         declarations: [dashboard_routes_1.MODULE_COMPONENTS]

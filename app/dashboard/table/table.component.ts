@@ -9,11 +9,12 @@ import { PostsService } from './../../services/post.service';
 })
 
 export class TableComponent{
-   users : User[];
+   users : string[];
    showsearch:boolean;
    constructor (private postsService : PostsService){
     this.postsService.getUser().subscribe(users => {
     this.users = users;
+    console.log(this.users)
    	this.showsearch = false;
     })
     this.showsearch = false;
@@ -31,11 +32,4 @@ export class TableComponent{
     this.showsearch = false;
     })
    }
-}
-interface User{
-    id : number ;
-    photoURL : string;
-    name : string ;
-    email : string ;
-    state : string;
 }

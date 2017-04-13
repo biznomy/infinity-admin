@@ -11,7 +11,7 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 
 export const MODULE_ROUTES: Route[] =[
     { path: 'dashboard', component: HomeComponent },
-    { path: 'user', component: UserComponent },
+    { path: 'user/:_id', component: UserComponent },
     { path: 'table', component: TableComponent },
     { path: 'icons', component: IconsComponent },
     { path: 'notifications', component: NotificationsComponent },
