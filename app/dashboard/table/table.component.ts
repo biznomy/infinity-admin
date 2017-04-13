@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, ROUTER_DIRECTIVES } from '@angular/router';
 import { PostsService } from './../../services/post.service';
 
 @Component({
@@ -10,10 +11,12 @@ import { PostsService } from './../../services/post.service';
 
 export class TableComponent{
    users : string[];
+   _id: string;
    showsearch:boolean;
    constructor (private postsService : PostsService){
     this.postsService.getUser().subscribe(users => {
     this.users = users;
+    this._id = "dsfd";
     console.log(this.users)
    	this.showsearch = false;
     })
