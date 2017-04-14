@@ -11,16 +11,16 @@
                     <form>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group form-black label-floating">
+                                <div class="form-group form-black label-floating is-empty">
                                     <label class="control-label">Id</label>
-                                    <input type="text" class="form-control" disabled value="{{info._id}}">
+                                    <input type="text" class="form-control" disabled value="{{_id}}">
                                 </div>
                             </div>
                             
                             <div class="col-md-6">
                                 <div class="form-group form-black label-floating">
                                     <label class="control-label">Email </label>
-                                    <input type="email" class="form-control" value="{{info.email}}">
+                                    <input type="email" class="form-control" value="{{email}}">
                                 </div>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                             <div class="col-md-6">
                                 <div class="form-group form-black label-floating">
                                     <label class="control-label">Fist Name</label>
-                                    <input type="text" class="form-control" value="{{info.name}}">
+                                    <input type="text" class="form-control" value="{{name}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -44,13 +44,13 @@
                             <div class="col-md-6">
                                 <div class="form-group form-black label-floating">
                                     <label class="control-label">Phone</label>
-                                    <input type="text" class="form-control" value="{{info.phone}}">
+                                    <input type="text" class="form-control" value="{{phone}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group form-black label-floating ">
                                     <label class="control-label">Gender</label>
-                                    <input type="text" class="form-control" value="{{info.gender}}" >
+                                    <input type="text" class="form-control" value="{{gender}}" >
                                 </div>
                             </div>
                         </div>
@@ -58,19 +58,19 @@
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating">
                                     <label class="control-label">City</label>
-                                    <input type="text" class="form-control" value="{{info.city}}">
+                                    <input type="text" class="form-control" value="{{city}}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating">
                                     <label class="control-label">State</label>
-                                    <input type="text" class="form-control" value="{{info.state}}">
+                                    <input type="text" class="form-control" value="{{state}}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating">
                                     <label class="control-label">Postal Code</label>
-                                    <input type="text" class="form-control" value="{{info.pincode}}">
+                                    <input type="text" class="form-control" value="{{pincode}}">
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                     <label>About Me</label>
                                     <div class="form-group form-black label-floating ">
                                         <label class="control-label"> Description</label>
-                                        <textarea class="form-control" rows="5">{{info.bio}}</textarea>
+                                        <textarea class="form-control" rows="5">{{bio}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -92,24 +92,82 @@
                     </form>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title">Post<span style="float:right;">{{postCount}}</span></h4>
+                    <p class="category"></p>
+
+                </div>
+                <div class="card-content">
+                     
+                     <div class="row" *ngFor="let p of posts">
+                         <p class="col-md-10" style="text-align: justify;"><img src="{{p.files.url}}" style="width:300px;float:left;
+                         margin:0px 10px 10px 0px"/>{{p.description}}</p>
+                         
+                         <div class="col-md-2" style="text-align: center;">
+                             <div data-background-color="green"><i class="fa fa-thumbs-up" style="margin-right: 10px;"></i>{{p.like_count}}</div>
+                             <div data-background-color="blue"><i class="fa fa-commenting" style="margin-right: 10px;"></i>{{p.comment_count}}</div>
+                         </div>
+                        <div></div>
+                     </div>
+                    
+                </div>
+            </div>
+
+
         </div>
         <div class="col-md-4">
             <div class="card card-profile">
                 <div class="card-avatar">
                     <a href="#pablo">
-                        <img class="img" src="{{info.photoURL}}" />
+                        <img class="img" src="{{photoURL}}" />
                     </a>
                 </div>
 
                 <div class="content">
                     <h6 class="category text-gray"></h6>
-                    <h4 class="card-title">{{info.name}}</h4>
+                    <h4 class="card-title">{{name}}</h4>
                     <p class="card-content">
-                       {{info.bio}}
+                       {{bio}}
                     </p>
                    <!-- <a href="#pablo" class="btn btn-danger btn-round">Follow</a>-->
                 </div>
             </div>
+            <div class="row">
+                 <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="card card-stats" >
+                        <div class="card-header" data-background-color="blue">
+                            <i class="fa fa-commenting"></i>
+                        </div>
+                        <div class="card-content">
+                            <p class="category">Comments</p>
+                            <h3 class="title">{{commentCount}}</h3>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="card card-stats" >
+                        <div class="card-header" data-background-color="green">
+                            <i class="fa fa-thumbs-up"></i>
+                        </div>
+                        <div class="card-content">
+                            <p class="category">Likes</p>
+                            <h3 class="title">{{likeCount}}</h3>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="alert alert-info" *ngFor="let p of comments">
+                            <button aria-hidden="true" class="close" type="button">×</button>
+                            <span>{{p.description}}</span>
+                        </div>
+            </div>
+
         </div>
     </div>
 </div>

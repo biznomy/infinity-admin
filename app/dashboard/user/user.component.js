@@ -14,16 +14,38 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 var post_service_1 = require("./../../services/post.service");
+//import { UserInfo } from './../interface';
+//import {Posts} from './../interface';
 var UserComponent = (function () {
     function UserComponent(route, location, postsService) {
         this.route = route;
         this.location = location;
         this.postsService = postsService;
         this._id = route.snapshot.params['_id'];
-        alert(this._id);
     }
     UserComponent.prototype.ngOnInit = function () {
+        var _this = this;
         // $.getScript('../../../assets/js/material-dashboard.js');
+        this.postsService.getAdmin("person/" + this._id).subscribe(function (user) {
+            _this._id = user._id;
+            _this.photoURL = user.photoURL;
+            _this.name = user.name;
+            _this.email = user.email;
+            _this.bio = user.bio;
+            _this.city = user.city;
+            _this.state = user.state;
+            _this.phone = user.phone;
+            _this.pincode = user.pincode;
+            _this.gender = user.gender;
+        });
+        this.postsService.getAdmin("userinfo/" + this._id).subscribe(function (infos) {
+            _this.posts = infos.posts.data;
+            _this.comments = infos.comments.data;
+            _this.likes = infos.likes.data;
+            _this.postCount = infos.posts.count;
+            _this.likeCount = infos.likes.count;
+            _this.commentCount = infos.comments.count;
+        });
     };
     return UserComponent;
 }());

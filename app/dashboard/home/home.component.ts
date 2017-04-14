@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit{
             this.postsService.getAdmin("dashboard").subscribe(count => {
                 this.totalUsersCount = count.totalUsersCount;
                 this.totalPostsCount = count.totalPostsCount;
-            this.totalCommentsCount =count.totalCommentsCount;
+                this.totalCommentsCount =count.totalCommentsCount;
                 this.totalLikesCount = count.totalLikesCount;
                 })
    
