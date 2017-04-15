@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import {Ng2PaginationModule} from 'ng2-pagination'; //importing ng2-pagination
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { TitleCasePipe } from './custom_pipes/numberformat.pipe'
+import { NumberFormat } from './custom_pipes/numberformat.pipe';
 
 import { AppComponent }   from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -27,9 +27,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         RouterModule.forRoot([]),
         HttpModule,
         Ng2PaginationModule
-       
+
     ],
-    declarations: [ AppComponent, DashboardComponent, TitleCasePipe],
+    declarations: [ AppComponent, DashboardComponent],
     providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap:    [ AppComponent ]
 })

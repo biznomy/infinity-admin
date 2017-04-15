@@ -24,8 +24,8 @@ var PostsService = (function () {
         return this.http.get(this._url + "/admin/user/list").map(function (res) { return res.json(); });
         //return this.http.get('https://jsonplaceholder.typicode.com/users').map(res => res.json());
     };
-    PostsService.prototype.getSearch = function (text) {
-        return this.http.get(this._url + "/admin/search/user?text=" + text).map(function (res) { return res.json(); });
+    PostsService.prototype.getSearch = function (text, model) {
+        return this.http.get(this._url + "/admin/search/user?text=" + text + "&model=" + model).map(function (res) { return res.json(); });
     };
     PostsService.prototype.getAdmin = function (text) {
         return this.http.get(this._url + "/admin/" + text).map(function (res) { return res.json(); });

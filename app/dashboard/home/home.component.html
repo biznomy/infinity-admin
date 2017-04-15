@@ -2,7 +2,7 @@
 
         <div class="container-fluid">
            <div class="row">
-               
+
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="card card-stats" >
                         <div class="card-header" data-background-color="red">
@@ -10,7 +10,7 @@
                         </div>
                         <div class="card-content">
                             <p class="category">Users</p>
-                            <h3 class="title">{{totalUsersCount}}</h3>
+                            <h3 class="title">{{totalUsersCount | numberFormat}}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -27,7 +27,7 @@
                         </div>
                         <div class="card-content">
                             <p class="category">Posts</p>
-                            <h3 class="title">+{{totalPostsCount}}</h3>
+                            <h3 class="title">+{{totalPostsCount | numberFormat}}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="card-content">
                             <p class="category">Comments</p>
-                            <h3 class="title">+{{totalCommentsCount}}</h3>
+                            <h3 class="title">+{{totalCommentsCount | numberFormat}}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -59,7 +59,7 @@
                         </div>
                         <div class="card-content">
                             <p class="category">Likes</p>
-                            <h3 class="title">+{{totalLikesCount}}</h3>
+                            <h3 class="title">+{{totalLikesCount | numberFormat}}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -161,14 +161,14 @@
                                         <td>$56,142</td>
                                         <td>Netherlands</td>
                                     </tr> -->
-                                  
+
                                     <tr *ngFor="let p of users;let s = index" [routerLink]="['/user', p]">
                                         <td>{{(s+1)}}</td>
                                         <td>{{p.name}}</td>
                                         <td>{{p.email}}</td>
                                         <td>{{p.state}}</td>
                                     </tr>
-                                      
+
                                 </tbody>
                             </table>
                         </div>
@@ -204,7 +204,7 @@
                                                     </button>
                                                 </td>
                                             </tr>
-                        
+
                                 </tbody>
                             </table>
                              <pagination-controls (pageChange)="page = $event" id="1"
@@ -217,8 +217,8 @@
                     </div>
                 </div>
 
-               </div> 
-      
+               </div>
+
     <!-- <div class="row">
                       <div class="col-lg-6 col-md-12">
                     <div class="card card-nav-tabs" >
@@ -440,7 +440,7 @@
                     </div>
                 </div>
 
-               
+
             </div>-->
         </div>
 </div>

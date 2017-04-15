@@ -15,9 +15,6 @@ import { PostsService } from './../../services/post.service';
 
 export class UserComponent implements OnInit{
     _id : string;
-    posts:Posts;
-    comments:Posts;
-    likes:Posts;
     photoURL : string;
     name : string;
     email : string;
@@ -46,7 +43,7 @@ export class UserComponent implements OnInit{
     this.state = user.state;
     this.phone = user.phone;
     this.pincode = user.pincode;
-    this.gender = user.gender;           
+    this.gender = user.gender;
     })
      this.postsService.getAdmin("userinfo/"+this._id).subscribe(infos => {
            this.posts = infos.posts.data
@@ -59,23 +56,23 @@ export class UserComponent implements OnInit{
     })
 
         }
-      
-   constructor(private route: ActivatedRoute, private location: Location, private postsService : PostsService) { 
-       
+
+   constructor(private route: ActivatedRoute, private location: Location, private postsService : PostsService) {
+
         this._id = route.snapshot.params['_id'];
-       
-        
+
+
      }
 }
 interface Post{
     files :Files
 }
 interface Like{
-    
+
 }
 interface Comment{
-    
+
 }
 interface Files{
-   url : string; 
+   url : string;
 }

@@ -11,6 +11,7 @@ var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 var http_1 = require("@angular/http");
 var platform_browser_1 = require("@angular/platform-browser");
+var pipe_module_1 = require("./../custom_pipes/pipe.module");
 var ng2_pagination_1 = require("ng2-pagination"); //importing ng2-pagination
 var dashboard_routes_1 = require("./dashboard.routes");
 var DashboardModule = (function () {
@@ -22,6 +23,7 @@ DashboardModule = __decorate([
     core_1.NgModule({
         imports: [
             router_1.RouterModule.forChild(dashboard_routes_1.MODULE_ROUTES),
+            pipe_module_1.PipeModule.forRoot(),
             http_1.HttpModule,
             platform_browser_1.BrowserModule,
             common_1.CommonModule,

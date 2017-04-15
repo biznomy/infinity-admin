@@ -23,7 +23,7 @@ export class TableComponent{
     this.showsearch = false;
    }
    searchValue(ds){
-    this.postsService.getSearch(ds).subscribe(users => {
+    this.postsService.getSearch(ds, "user").subscribe(users => {
     this.users = users.data;
     this.showsearch = true;
     })

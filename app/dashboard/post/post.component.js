@@ -11,43 +11,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var post_service_1 = require("./../../services/post.service");
-var TableComponent = (function () {
-    function TableComponent(postsService) {
+var PostComponent = (function () {
+    function PostComponent(postsService) {
         var _this = this;
         this.postsService = postsService;
-        this.postsService.getUser().subscribe(function (users) {
-            _this.users = users;
-            _this._id = "dsfd";
-            console.log(_this.users);
-            _this.showsearch = false;
+        this.postsService.getAdmin("post").subscribe(function (posts) {
+            _this.posts = posts.data;
+            _this.count = posts.count;
+            _this.refresh = false;
+            _this.search = true;
+            _this.searchForm = { 'fa fa-refresh': _this.refresh, 'fa fa-search': _this.search };
         });
-        this.showsearch = false;
     }
-    TableComponent.prototype.searchValue = function (ds) {
+    PostComponent.prototype.searchValue = function (ds) {
         var _this = this;
-        this.postsService.getSearch(ds, "user").subscribe(function (users) {
-            _this.users = users.data;
-            _this.showsearch = true;
+        this.postsService.getSearch(ds, "post").subscribe(function (posts) {
+            _this.posts = posts.data;
+            _this.count = posts.count;
+            _this.search = false;
+            _this.refresh = true;
         });
         return false;
     };
-    TableComponent.prototype.resetData = function () {
-        var _this = this;
-        this.postsService.getUser().subscribe(function (users) {
-            _this.users = users;
-            _this.showsearch = false;
-        });
-    };
-    return TableComponent;
+    return PostComponent;
 }());
-TableComponent = __decorate([
+PostComponent = __decorate([
     core_1.Component({
-        selector: 'table-cmp',
+        selector: 'post-cmp',
         moduleId: module.id,
-        templateUrl: 'table.component.html',
+        templateUrl: 'post.component.html',
         providers: [post_service_1.PostsService]
     }),
     __metadata("design:paramtypes", [post_service_1.PostsService])
-], TableComponent);
-exports.TableComponent = TableComponent;
-//# sourceMappingURL=table.component.js.map
+], PostComponent);
+exports.PostComponent = PostComponent;
+//# sourceMappingURL=post.component.js.map

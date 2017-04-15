@@ -8,10 +8,12 @@ var notifications_component_1 = require("./notifications/notifications.component
 var typography_component_1 = require("./typography/typography.component");
 var maps_component_1 = require("./maps/maps.component");
 var upgrade_component_1 = require("./upgrade/upgrade.component");
+var post_component_1 = require("./post/post.component");
 exports.MODULE_ROUTES = [
     { path: 'dashboard', component: home_component_1.HomeComponent },
     { path: 'user/:_id', component: user_component_1.UserComponent },
     { path: 'table', component: table_component_1.TableComponent },
+    { path: 'post', component: post_component_1.PostComponent },
     { path: 'icons', component: icons_component_1.IconsComponent },
     { path: 'notifications', component: notifications_component_1.NotificationsComponent },
     { path: 'typography', component: typography_component_1.TypographyComponent },
@@ -26,6 +28,7 @@ exports.MODULE_COMPONENTS = [
     notifications_component_1.NotificationsComponent,
     typography_component_1.TypographyComponent,
     maps_component_1.MapsComponent,
-    upgrade_component_1.UpgradeComponent
+    upgrade_component_1.UpgradeComponent,
+    post_component_1.PostComponent
 ];
 //# sourceMappingURL=dashboard.routes.js.map

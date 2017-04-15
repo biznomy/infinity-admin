@@ -7,19 +7,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var NumberFormat = (function () {
-    function NumberFormat() {
+var numberformat_pipe_1 = require("./numberformat.pipe");
+var PipeModule = PipeModule_1 = (function () {
+    function PipeModule() {
     }
-    NumberFormat.prototype.transform = function (value) {
-        if (value !== undefined)
-            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    PipeModule.forRoot = function () {
+        return {
+            ngModule: PipeModule_1,
+            providers: [],
+        };
     };
-    return NumberFormat;
+    return PipeModule;
 }());
-NumberFormat = __decorate([
-    core_1.Pipe({
-        name: 'numberFormat'
+PipeModule = PipeModule_1 = __decorate([
+    core_1.NgModule({
+        imports: [],
+        declarations: [numberformat_pipe_1.NumberFormat],
+        exports: [numberformat_pipe_1.NumberFormat],
     })
-], NumberFormat);
-exports.NumberFormat = NumberFormat;
-//# sourceMappingURL=numberformat.pipe.js.map
+], PipeModule);
+exports.PipeModule = PipeModule;
+var PipeModule_1;
+//# sourceMappingURL=pipe.module.js.map

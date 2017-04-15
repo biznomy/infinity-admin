@@ -16,7 +16,7 @@
                                     <input type="text" class="form-control" disabled value="{{_id}}">
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group form-black label-floating">
                                     <label class="control-label">Email </label>
@@ -100,18 +100,18 @@
 
                 </div>
                 <div class="card-content">
-                     
+
                      <div class="row" *ngFor="let p of posts">
                          <p class="col-md-10" style="text-align: justify;"><img src="{{p.files.url}}" style="width:300px;float:left;
                          margin:0px 10px 10px 0px"/>{{p.description}}</p>
-                         
+
                          <div class="col-md-2" style="text-align: center;">
                              <div data-background-color="green"><i class="fa fa-thumbs-up" style="margin-right: 10px;"></i>{{p.like_count}}</div>
                              <div data-background-color="blue"><i class="fa fa-commenting" style="margin-right: 10px;"></i>{{p.comment_count}}</div>
                          </div>
                         <div></div>
                      </div>
-                    
+
                 </div>
             </div>
 
@@ -144,7 +144,7 @@
                             <p class="category">Comments</p>
                             <h3 class="title">{{commentCount}}</h3>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -156,10 +156,10 @@
                             <p class="category">Likes</p>
                             <h3 class="title">{{likeCount}}</h3>
                         </div>
-                        
+
                     </div>
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="alert alert-info" *ngFor="let p of comments">
