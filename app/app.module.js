@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
 var ng2_pagination_1 = require("ng2-pagination"); //importing ng2-pagination
+var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var dashboard_component_1 = require("./dashboard/dashboard.component");
 var dashboard_module_1 = require("./dashboard/dashboard.module");
@@ -31,6 +32,7 @@ AppModule = __decorate([
             sidebar_module_1.SidebarModule,
             navbar_module_1.NavbarModule,
             footer_module_1.FooterModule,
+            forms_1.FormsModule,
             router_1.RouterModule.forRoot([]),
             http_1.HttpModule,
             ng2_pagination_1.Ng2PaginationModule

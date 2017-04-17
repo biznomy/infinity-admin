@@ -6,6 +6,8 @@ import {Ng2PaginationModule} from 'ng2-pagination'; //importing ng2-pagination
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { NumberFormat } from './custom_pipes/numberformat.pipe';
 
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent }   from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -24,6 +26,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         SidebarModule,
         NavbarModule,
         FooterModule,
+        FormsModule,
         RouterModule.forRoot([]),
         HttpModule,
         Ng2PaginationModule

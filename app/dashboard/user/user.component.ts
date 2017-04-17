@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { PostsService } from './../../services/post.service';
-//import { UserInfo } from './../interface';
-//import {Posts} from './../interface';
 
 @Component({
     selector: 'user-cmp',
@@ -30,11 +28,13 @@ export class UserComponent implements OnInit{
     postCount : number;
     likeCount : number ;
     commentCount : number;
+    payload : any;
+
 
     ngOnInit(){
         // $.getScript('../../../assets/js/material-dashboard.js');
     this.postsService.getAdmin("person/"+this._id).subscribe(user => {
-      this._id = user._id;
+    this._id = user._id;
     this.photoURL = user.photoURL;
     this.name = user.name;
     this.email = user.email;
@@ -56,7 +56,25 @@ export class UserComponent implements OnInit{
     })
 
         }
-
+   updateUser(dw){
+   console.log(this.name);
+   console.log(this.bio)
+   this.payload["_id"] = this._id;
+   this.payload["name"] = this.name;
+   this.postsService.sendData("",this.payload).subscribe(infos => {
+     alert("")
+   });
+   return false;
+   }
+   public onSubmit(empForm: any, id : any, event: Event) {
+    event.preventDefault();
+    console.log(empForm.value);
+    empForm.value["_id"] = id;
+    alert(id);
+    this.postsService.sendData("",empForm.value).subscribe(infos => {
+      alert("")
+    });
+   }
    constructor(private route: ActivatedRoute, private location: Location, private postsService : PostsService) {
 
         this._id = route.snapshot.params['_id'];

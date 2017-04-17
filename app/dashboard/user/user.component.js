@@ -14,8 +14,6 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 var post_service_1 = require("./../../services/post.service");
-//import { UserInfo } from './../interface';
-//import {Posts} from './../interface';
 var UserComponent = (function () {
     function UserComponent(route, location, postsService) {
         this.route = route;
@@ -45,6 +43,25 @@ var UserComponent = (function () {
             _this.postCount = infos.posts.count;
             _this.likeCount = infos.likes.count;
             _this.commentCount = infos.comments.count;
+        });
+    };
+    UserComponent.prototype.updateUser = function (dw) {
+        console.log(this.name);
+        console.log(this.bio);
+        this.payload["_id"] = this._id;
+        this.payload["name"] = this.name;
+        this.postsService.sendData("", this.payload).subscribe(function (infos) {
+            alert("");
+        });
+        return false;
+    };
+    UserComponent.prototype.onSubmit = function (empForm, id, event) {
+        event.preventDefault();
+        console.log(empForm.value);
+        empForm.value["_id"] = id;
+        alert(id);
+        this.postsService.sendData("", empForm.value).subscribe(function (infos) {
+            alert("");
         });
     };
     return UserComponent;

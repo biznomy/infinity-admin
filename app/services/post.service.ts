@@ -22,4 +22,13 @@ export class PostsService{
 	getAdmin(text){
 	return this.http.get(this._url+"/admin/"+text).map(res => res.json());
 	}
+	sendData(url , data){
+	var formData = new FormData();
+
+	for(var i in data){
+formData.append(i,  data[i]);
+	}
+	return this.http.put(this._url+'/admin/user/detail/'+data._id, data)
+					 .map(res => res.json());
+	}
 }

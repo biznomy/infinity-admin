@@ -30,6 +30,14 @@ var PostsService = (function () {
     PostsService.prototype.getAdmin = function (text) {
         return this.http.get(this._url + "/admin/" + text).map(function (res) { return res.json(); });
     };
+    PostsService.prototype.sendData = function (url, data) {
+        var formData = new FormData();
+        for (var i in data) {
+            formData.append(i, data[i]);
+        }
+        return this.http.put(this._url + '/admin/user/detail/' + data._id, data)
+            .map(function (res) { return res.json(); });
+    };
     return PostsService;
 }());
 PostsService = __decorate([
