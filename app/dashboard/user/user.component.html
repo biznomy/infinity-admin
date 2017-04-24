@@ -64,13 +64,13 @@
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating">
                                     <label class="control-label">State</label>
-                                    <input type="text" class="form-control" name="state" value="state">
+                                    <input type="text" class="form-control" name="state" [(ngModel)]="state">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating">
                                     <label class="control-label">Postal Code</label>
-                                    <input type="text" class="form-control" name="pincode" value="pincode">
+                                    <input type="text" class="form-control" name="pincode" [(ngModel)]="pincode">
                                 </div>
                             </div>
                         </div>
@@ -104,6 +104,11 @@
                      <div class="row" >
                          <p class="col-md-10" style="text-align: justify;"><img src="{{p.files.url}}" style="width:300px;float:left;
                          margin:0px 10px 10px 0px"/>{{p.description}}</p>
+
+
+                         
+
+
 
                          <div class="col-md-2" style="text-align: center;">
                              <div data-background-color="green"><i class="fa fa-thumbs-up" style="margin-right: 10px;"></i>{{p.like_count}}</div>

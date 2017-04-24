@@ -12,7 +12,6 @@ var common_1 = require("@angular/common");
 var http_1 = require("@angular/http");
 var platform_browser_1 = require("@angular/platform-browser");
 var pipe_module_1 = require("./../custom_pipes/pipe.module");
-var angular2_resizing_cropping_image_1 = require("angular2-resizing-cropping-image");
 var forms_1 = require("@angular/forms");
 var ng2_pagination_1 = require("ng2-pagination"); //importing ng2-pagination
 var dashboard_routes_1 = require("./dashboard.routes");
@@ -30,8 +29,7 @@ DashboardModule = __decorate([
             platform_browser_1.BrowserModule,
             common_1.CommonModule,
             ng2_pagination_1.Ng2PaginationModule,
-            forms_1.FormsModule,
-            angular2_resizing_cropping_image_1.lyResizingCroppingImagesModule
+            forms_1.FormsModule
         ],
         declarations: [dashboard_routes_1.MODULE_COMPONENTS]
     })

@@ -10,6 +10,8 @@ import { MapsComponent } from './maps/maps.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { PostComponent } from './post/post.component';
 
+
+
 export const MODULE_ROUTES: Route[] =[
     { path: 'dashboard', component: HomeComponent },
     { path: 'user/:_id', component: UserComponent },
@@ -32,5 +34,6 @@ export const MODULE_COMPONENTS = [
     TypographyComponent,
     MapsComponent,
     UpgradeComponent,
-    PostComponent
+    PostComponent,
+    
 ]

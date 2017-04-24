@@ -39,7 +39,9 @@
       'ng2-pagination': { //add configuration to load
         main: './index.js',
         defaultExtension: 'js'
-      }
+      },
+      
+
     }
   });
 })(this);

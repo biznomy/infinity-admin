@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { PipeModule } from './../custom_pipes/pipe.module';
-import { lyResizingCroppingImagesModule } from 'angular2-resizing-cropping-image';
+
 
 import { FormsModule } from '@angular/forms';
 
@@ -20,8 +20,7 @@ import { MODULE_COMPONENTS, MODULE_ROUTES } from './dashboard.routes';
         BrowserModule,
         CommonModule,
         Ng2PaginationModule,
-        FormsModule,
-        lyResizingCroppingImagesModule
+        FormsModule
 
     ],
     declarations: [ MODULE_COMPONENTS]

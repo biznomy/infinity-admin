@@ -49,9 +49,7 @@ var UserComponent = (function () {
         console.log(this.name);
         console.log(this.bio);
         this.payload["_id"] = this._id;
-        this.payload["name"] = this.name;
         this.postsService.sendData("", this.payload).subscribe(function (infos) {
-            alert("");
         });
         return false;
     };
@@ -59,9 +57,7 @@ var UserComponent = (function () {
         event.preventDefault();
         console.log(empForm.value);
         empForm.value["_id"] = id;
-        alert(id);
         this.postsService.sendData("", empForm.value).subscribe(function (infos) {
-            alert("");
         });
     };
     return UserComponent;

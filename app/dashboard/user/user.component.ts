@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { PostsService } from './../../services/post.service';
 
+
 @Component({
     selector: 'user-cmp',
     moduleId: module.id,
@@ -60,9 +61,9 @@ export class UserComponent implements OnInit{
    console.log(this.name);
    console.log(this.bio)
    this.payload["_id"] = this._id;
-   this.payload["name"] = this.name;
+  
    this.postsService.sendData("",this.payload).subscribe(infos => {
-     alert("")
+     
    });
    return false;
    }
@@ -70,9 +71,9 @@ export class UserComponent implements OnInit{
     event.preventDefault();
     console.log(empForm.value);
     empForm.value["_id"] = id;
-    alert(id);
+   
     this.postsService.sendData("",empForm.value).subscribe(infos => {
-      alert("")
+      
     });
    }
    constructor(private route: ActivatedRoute, private location: Location, private postsService : PostsService) {

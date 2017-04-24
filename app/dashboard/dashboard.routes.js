@@ -29,6 +29,6 @@ exports.MODULE_COMPONENTS = [
     typography_component_1.TypographyComponent,
     maps_component_1.MapsComponent,
     upgrade_component_1.UpgradeComponent,
-    post_component_1.PostComponent
+    post_component_1.PostComponent,
 ];
 //# sourceMappingURL=dashboard.routes.js.map
