@@ -16,8 +16,14 @@ var AppComponent = (function () {
     function AppComponent(router, location) {
         this.router = router;
         this.location = location;
-        this.islogin = true;
-        this.router.navigate(['/dashboard']);
+        var d = new Date();
+        if (localStorage.getItem("inf-admin-auth") !== null && localStorage.getItem("inf-admin-auth") !== "" && localStorage.getItem("inf-admin-auth") !== undefined && localStorage.getItem("inf-admin-auth") > d.getTime()) {
+            this.islogin = true;
+            this.router.navigate(['/dashboard']);
+        }
+        else {
+            this.islogin = false;
+        }
     }
     AppComponent.prototype.ngOnInit = function () {
         $.getScript('../assets/js/material-dashboard.js');
@@ -34,13 +40,17 @@ var AppComponent = (function () {
         }
     };
     AppComponent.prototype.submitValue = function (email, password) {
-        // if(email.indexOf("admin") > -1 && password === "admin"){
-        this.islogin = true;
-        var nav = this.router;
-        setTimeout(function () {
-            nav.navigate(['/dashboard']);
-        }, 500);
-        //}
+        if (email.indexOf("admin1@infinity.com") > -1 && password === "adminInfinity") {
+            this.islogin = true;
+            this.location = location;
+            var d = new Date();
+            d.setHours(d.getHours() + 3);
+            localStorage.setItem("inf-admin-auth", (d.getTime()));
+            var nav = this.router;
+            setTimeout(function () {
+                nav.navigate(['/dashboard']);
+            }, 500);
+        }
     };
     return AppComponent;
 }());
@@ -53,4 +63,7 @@ AppComponent = __decorate([
     __metadata("design:paramtypes", [router_1.Router, common_1.Location])
 ], AppComponent);
 exports.AppComponent = AppComponent;
+{
+    this.islogin = false;
+}
 //# sourceMappingURL=app.component.js.map

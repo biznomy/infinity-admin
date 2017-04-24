@@ -14,7 +14,7 @@ declare var $:any;
 export class AppComponent implements OnInit{
     islogin : boolean;
     location: Location;
-  
+
     ngOnInit(){
         $.getScript('../assets/js/material-dashboard.js');
         $.getScript('../assets/js/initMenu.js');
@@ -31,17 +31,30 @@ export class AppComponent implements OnInit{
     }
     constructor( private router: Router ,location: Location) {
      this.location = location;
-    this.islogin = true;  
-     this.router.navigate(['/dashboard']);
+     var d = new Date();
+     if(localStorage.getItem("inf-admin-auth") !== null && localStorage.getItem("inf-admin-auth") !== "" && localStorage.getItem("inf-admin-auth") !== undefined && localStorage.getItem("inf-admin-auth") > d.getTime()){
+       this.islogin = true;
+       this.router.navigate(['/dashboard']);
+     }else{
+       this.islogin = false;
+     }
+
 }
     submitValue(email,password){
-   // if(email.indexOf("admin") > -1 && password === "admin"){
-      this.islogin = true;  
-     var nav = this.router;
-     setTimeout(function(){
-     nav.navigate(['/dashboard']);
-     },500)
-    
-    //}
+    if(email.indexOf("admin1@infinity.com") > -1 && password === "adminInfinity"){
+        this.islogin = true;
+        this.location = location;
+        var d = new Date();
+        d.setHours(d.getHours() +3);
+
+        localStorage.setItem("inf-admin-auth",(d.getTime());
+        var nav = this.router;
+        setTimeout(function(){
+            nav.navigate(['/dashboard']);
+          },500)
+
     }
+  }else{
+    this.islogin = false;
+  }
 }

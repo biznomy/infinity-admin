@@ -7,26 +7,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var numberformat_pipe_1 = require("./numberformat.pipe");
-var checkValue_1 = require("./checkValue");
-var PipeModule = PipeModule_1 = (function () {
-    function PipeModule() {
+var checkValue = (function () {
+    function checkValue() {
     }
-    PipeModule.forRoot = function () {
-        return {
-            ngModule: PipeModule_1,
-            providers: [],
-        };
+    checkValue.prototype.transform = function (value) {
+        var bool = "";
+        if (value !== undefined && value !== null && value !== "" && value.files !== undefined && value.files.url !== undefined)
+            bool = value.files.url;
+        return bool;
     };
-    return PipeModule;
+    return checkValue;
 }());
-PipeModule = PipeModule_1 = __decorate([
-    core_1.NgModule({
-        imports: [],
-        declarations: [numberformat_pipe_1.NumberFormat, checkValue_1.checkValue],
-        exports: [numberformat_pipe_1.NumberFormat, checkValue_1.checkValue],
+checkValue = __decorate([
+    core_1.Pipe({
+        name: 'validate'
     })
-], PipeModule);
-exports.PipeModule = PipeModule;
-var PipeModule_1;
-//# sourceMappingURL=pipe.module.js.map
+], checkValue);
+exports.checkValue = checkValue;
+//# sourceMappingURL=checkValue.js.map

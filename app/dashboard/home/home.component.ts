@@ -12,14 +12,15 @@ declare var $:any;
 })
 
 export class HomeComponent implements OnInit{
-   posts :Post[];
+   posts : string[];
+   count : number;
    users : User[];
    totalUsersCount : number;
    totalPostsCount: number;
    totalCommentsCount: number;
    totalLikesCount: number ;
    constructor (private postsService : PostsService){
-   
+
    }
     ngOnInit(){
         // $('[data-toggle="checkbox"]').each(function () {
@@ -29,13 +30,18 @@ export class HomeComponent implements OnInit{
         //     $checkbox.checkbox();
         // });
         initDemo();
-            this.postsService.getPost().subscribe(post => {
-                this.posts = post;
-               
-                })
+          //  this.postsService.getPost().subscribe(post => {
+            //    this.posts = post;
+
+              //  })
+           this.postsService.getAdmin("post").subscribe(posts => {
+                this.posts = posts.data;
+                this.count = posts.count;
+
+              })
             this.postsService.getUser().subscribe(users => {
                 this.users = users;
-               
+
                 })
             this.postsService.getAdmin("dashboard").subscribe(count => {
                 this.totalUsersCount = count.totalUsersCount;
@@ -43,7 +49,7 @@ export class HomeComponent implements OnInit{
                 this.totalCommentsCount =count.totalCommentsCount;
                 this.totalLikesCount = count.totalLikesCount;
                 })
-   
+
 }
 }
 interface User{
@@ -54,7 +60,7 @@ interface User{
     state : string;
 }
 interface Post{
-    id : string;
+    _id : string;
     title: string;
     body :string
 }

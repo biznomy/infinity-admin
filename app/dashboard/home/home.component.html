@@ -12,11 +12,11 @@
                             <p class="category">Users</p>
                             <h3 class="title">{{totalUsersCount | numberFormat}}</h3>
                         </div>
-                        <div class="card-footer">
+                        <!--<div class="card-footer">
                             <div class="stats">
                                 <i class="material-icons">local_offer</i> Tracked from Github
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
 
@@ -29,11 +29,11 @@
                             <p class="category">Posts</p>
                             <h3 class="title">+{{totalPostsCount | numberFormat}}</h3>
                         </div>
-                        <div class="card-footer">
+                      <!--  <div class="card-footer">
                             <div class="stats">
                                 <i class="material-icons">update</i> Just Updated
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                  <div class="col-lg-3 col-md-6 col-sm-6">
@@ -45,11 +45,11 @@
                             <p class="category">Comments</p>
                             <h3 class="title">+{{totalCommentsCount | numberFormat}}</h3>
                         </div>
-                        <div class="card-footer">
+                      <!--  <div class="card-footer">
                             <div class="stats">
                                 <i class="material-icons text-danger">warning</i> <a href="#pablo">Get More Space...</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -61,11 +61,11 @@
                             <p class="category">Likes</p>
                             <h3 class="title">+{{totalLikesCount | numberFormat}}</h3>
                         </div>
-                        <div class="card-footer">
+                      <!--  <div class="card-footer">
                             <div class="stats">
                                 <i class="material-icons">date_range</i> Last 24 Hours
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -80,11 +80,11 @@
                             <h4 class="title">Usage</h4>
                             <p class="category"><span class="text-success"><i class="fa fa-long-arrow-up"></i> 22%  </span> Usage of infinity </p>
                         </div>
-                        <div class="card-footer">
+                      <!--  <div class="card-footer">
                             <div class="stats">
                                 <i class="material-icons">access_time</i> updated 4 minutes ago
                             </div>
-                        </div>
+                        </div>  -->
                     </div>
                 </div>
 
@@ -97,11 +97,11 @@
                             <h4 class="title">New User</h4>
                             <p class="category">No Of person signup</p>
                         </div>
-                        <div class="card-footer">
+                    <!--    <div class="card-footer">
                             <div class="stats">
                                 <i class="material-icons">access_time</i> Update 2 days ago
                             </div>
-                        </div>
+                        </div>  -->
 
                     </div>
                 </div>
@@ -115,11 +115,11 @@
                             <h4 class="title">Error Logs</h4>
                             <p class="category">Over All Performance</p>
                         </div>
-                        <div class="card-footer">
+                      <!-- <div class="card-footer">
                             <div class="stats">
                                 <i class="material-icons">access_time</i> campaign sent 2 days ago
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
                     <div class="card" >
                         <div class="card-header" data-background-color="orange">
                             <h4 class="title">Lastest SignUp</h4>
-                            <p class="category">New User (Updated 4 min ago)</p>
+                            <p class="category">New User </p>
                         </div>
                         <div class="card-content table-responsive">
                             <table class="table table-hover">
@@ -162,7 +162,7 @@
                                         <td>Netherlands</td>
                                     </tr> -->
 
-                                    <tr *ngFor="let p of users;let s = index" [routerLink]="['/user', p]">
+                                    <tr *ngFor="let p of users;let s = index" [routerLink]="['/user', p] ">
                                         <td>{{(s+1)}}</td>
                                         <td>{{p.name}}</td>
                                         <td>{{p.email}}</td>
@@ -179,7 +179,7 @@
                     <div class="card" >
                         <div class="card-header" data-background-color="orange" style="    background: linear-gradient(60deg, #26e1ff, #926834);">
                             <h4 class="title">Lastest posts</h4>
-                            <p class="category">Latest Post Alerts (Update in 1 sec ago)</p>
+                            <p class="category">Latest Post Alerts </p>
                         </div>
                          <div class="card-content">
                             <div class="tab-content">
@@ -187,21 +187,22 @@
                                     <table class="table">
                                         <tbody>
                                             <tr *ngFor="let p of posts | paginate: {itemsPerPage: 5, currentPage:page, id: '1'}; let i = index">
+
                                                 <td>
-                                                    <div class="checkbox">
+                                                  <!--  <div class="checkbox">
                                                         <label>
                                                             <input type="checkbox" name="optionsCheckboxes">
                                                         </label>
-                                                    </div>
+                                                    </div>-->
                                                 </td>
-                                                <td>{{p.body}}</td>
+                                                <td>{{p.description}}</td>
                                                 <td class="td-actions text-right">
-                                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                  <!--  <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
                                                         <i class="material-icons">edit</i>
                                                     </button>
                                                     <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
                                                         <i class="material-icons">close</i>
-                                                    </button>
+                                                    </button>-->
                                                 </td>
                                             </tr>
 

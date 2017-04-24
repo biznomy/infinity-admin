@@ -25,8 +25,12 @@ var HomeComponent = (function () {
         //     $checkbox.checkbox();
         // });
         initDemo();
-        this.postsService.getPost().subscribe(function (post) {
-            _this.posts = post;
+        //  this.postsService.getPost().subscribe(post => {
+        //    this.posts = post;
+        //  })
+        this.postsService.getAdmin("post").subscribe(function (posts) {
+            _this.posts = posts.data;
+            _this.count = posts.count;
         });
         this.postsService.getUser().subscribe(function (users) {
             _this.users = users;

@@ -12,7 +12,7 @@ var post_component_1 = require("./post/post.component");
 exports.MODULE_ROUTES = [
     { path: 'dashboard', component: home_component_1.HomeComponent },
     { path: 'user/:_id', component: user_component_1.UserComponent },
-    { path: 'table', component: table_component_1.TableComponent },
+    { path: 'users', component: table_component_1.TableComponent },
     { path: 'post', component: post_component_1.PostComponent },
     { path: 'icons', component: icons_component_1.IconsComponent },
     { path: 'notifications', component: notifications_component_1.NotificationsComponent },

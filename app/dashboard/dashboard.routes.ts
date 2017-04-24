@@ -15,7 +15,7 @@ import { PostComponent } from './post/post.component';
 export const MODULE_ROUTES: Route[] =[
     { path: 'dashboard', component: HomeComponent },
     { path: 'user/:_id', component: UserComponent },
-    { path: 'table', component: TableComponent },
+    { path: 'users', component: TableComponent },
     { path: 'post', component: PostComponent },
     { path: 'icons', component: IconsComponent },
     { path: 'notifications', component: NotificationsComponent },
@@ -35,5 +35,5 @@ export const MODULE_COMPONENTS = [
     MapsComponent,
     UpgradeComponent,
     PostComponent,
-    
+
 ]
