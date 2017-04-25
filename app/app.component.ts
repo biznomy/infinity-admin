@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
     ngOnInit(){
         $.getScript('../assets/js/material-dashboard.js');
         $.getScript('../assets/js/initMenu.js');
+
     }
     public isMaps(path){
         var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -29,32 +30,28 @@ export class AppComponent implements OnInit{
             return true;
         }
     }
-    constructor( private router: Router ,location: Location) {
+    constructor( private router: Router ,location: Location){
      this.location = location;
      var d = new Date();
-     if(localStorage.getItem("inf-admin-auth") !== null && localStorage.getItem("inf-admin-auth") !== "" && localStorage.getItem("inf-admin-auth") !== undefined && localStorage.getItem("inf-admin-auth") > d.getTime()){
+     if(localStorage.getItem("inf-admin-auth") !== null && localStorage.getItem("inf-admin-auth") !== "" && localStorage.getItem("inf-admin-auth") !== undefined && Number(localStorage.getItem("inf-admin-auth")) > d.getTime()){
        this.islogin = true;
        this.router.navigate(['/dashboard']);
      }else{
        this.islogin = false;
      }
-
-}
+   }
     submitValue(email,password){
-    if(email.indexOf("admin1@infinity.com") > -1 && password === "adminInfinity"){
+    if(email.indexOf("admin") > -1 && password === "admin"){
         this.islogin = true;
-        this.location = location;
         var d = new Date();
         d.setHours(d.getHours() +3);
 
-        localStorage.setItem("inf-admin-auth",(d.getTime());
+        localStorage.setItem("inf-admin-auth",(d.getTime()).toString());
         var nav = this.router;
         setTimeout(function(){
             nav.navigate(['/dashboard']);
-          },500)
-
-    }
+          },500);
   }else{
     this.islogin = false;
-  }
+  }}
 }

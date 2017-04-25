@@ -16,8 +16,8 @@ var PostsService = (function () {
     function PostsService(http) {
         this.http = http;
         //this._url = "http://localhost:3210";
-        //this._url = "http://137.197.217.75:3100"
-        this._url = "http://192.168.1.7:3210";
+        this._url = "http://138.197.217.75:3100";
+        // this._url = "http://localhost:3100";
     }
     PostsService.prototype.getPost = function () {
         return this.http.get('https://jsonplaceholder.typicode.com/Posts').map(function (res) { return res.json(); });

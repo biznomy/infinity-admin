@@ -6,8 +6,10 @@
                     <input type="text" class="form-control" placeholder="Search" #searchString>
                     <span class="material-input"></span>
                 </div>
-                <button (click)="searchValue(searchString.value)" class="btn btn-white btn-round btn-just-icon">
-                    <i [ngClass]="searchForm" ></i><div class="ripple-container"></div>
+                <button (click)="searchValueRef(searchString.value ,$event)" class="btn btn-white btn-round btn-just-icon">
+                  <i *ngIf="!showsearch"  class='fa fa-search' ></i>
+                  <i  *ngIf="showsearch" class="fa fa-refresh" ></i>
+                  <div class="ripple-container"></div>
                 </button>
             </form>
 

@@ -18,20 +18,38 @@ var PostComponent = (function () {
         this.postsService.getAdmin("post").subscribe(function (posts) {
             _this.posts = posts.data;
             _this.count = posts.count;
-            _this.refresh = false;
-            _this.search = true;
-            _this.searchForm = { 'fa fa-refresh': _this.refresh, 'fa fa-search': _this.search };
+            _this.showsearch = false;
         });
     }
     PostComponent.prototype.searchValue = function (ds) {
         var _this = this;
+        this.showsearch = true;
         this.postsService.getSearch(ds, "post").subscribe(function (posts) {
             _this.posts = posts.data;
             _this.count = posts.count;
-            _this.search = false;
-            _this.refresh = true;
+            _this.showsearch = true;
         });
         return false;
+    };
+    PostComponent.prototype.searchValueRef = function (ds, event) {
+        var _this = this;
+        event.preventDefault();
+        alert(this.showsearch);
+        if (this.showsearch) {
+            this.showsearch = false;
+            this.postsService.getAdmin("post").subscribe(function (posts) {
+                _this.posts = posts.data;
+                _this.count = posts.count;
+            });
+        }
+        else {
+            this.showsearch = true;
+            this.postsService.getSearch(ds, "post").subscribe(function (posts) {
+                _this.posts = posts.data;
+                _this.count = posts.count;
+                _this.showsearch = true;
+            });
+        }
     };
     return PostComponent;
 }());

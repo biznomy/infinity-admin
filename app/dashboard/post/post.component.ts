@@ -12,31 +12,48 @@ import { PostsService } from './../../services/post.service';
 export class PostComponent{
    posts : string[];
    count : number;
-   refresh : boolean;
-   search : boolean;
-   searchForm:any;
+   searchIcon:any;
 
    showsearch:boolean;
    constructor (private postsService : PostsService){
     this.postsService.getAdmin("post").subscribe(posts => {
       this.posts = posts.data;
       this.count = posts.count;
-      this.refresh = false;
-      this.search = true;
-      this.searchForm = {'fa fa-refresh': this.refresh , 'fa fa-search' : this.search}
+      this.showsearch= false;
     })
 
    }
    searchValue(ds){
+   this.showsearch = true;
    this.postsService.getSearch(ds, "post").subscribe(posts => {
    this.posts = posts.data;
    this.count = posts.count;
-   this.search = false;
-   this.refresh = true ;
+   this.showsearch = true;
 
    })
    return false;
    }
+   searchValueRef(ds ,event){
+     event.preventDefault();
+     alert(this.showsearch)
+     if(this.showsearch){
+       this.showsearch= false;
+       this.postsService.getAdmin("post").subscribe(posts => {
+       this.posts = posts.data;
+       this.count = posts.count;
 
+       })
+
+     }else{
+       this.showsearch = true;
+       this.postsService.getSearch(ds, "post").subscribe(posts => {
+       this.posts = posts.data;
+       this.count = posts.count;
+       this.showsearch = true;
+
+       })
+     }
+   }
+//{'fa fa-refresh': this.refresh , 'fa fa-search' : this.search}
 
 }

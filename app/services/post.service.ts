@@ -7,8 +7,8 @@ export class PostsService{
 	   _url : string
 	constructor(private http : Http){
 		//this._url = "http://localhost:3210";
-		//this._url = "http://137.197.217.75:3100"
-		this._url = "http://192.168.1.7:3210";
+		this._url = "http://138.197.217.75:3100"
+		// this._url = "http://localhost:3100";
 	}
 
 	getPost(){
