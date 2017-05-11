@@ -16,7 +16,8 @@ var PostsService = (function () {
     function PostsService(http) {
         this.http = http;
         //this._url = "http://localhost:3210";
-        this._url = "http://138.197.217.75:3100";
+        //this._url = "http://138.197.217.75:3100"
+        this._url = "http://localhost:3100";
         // this._url = "http://localhost:3100";
     }
     PostsService.prototype.getPost = function () {
@@ -38,6 +39,14 @@ var PostsService = (function () {
             formData.append(i, data[i]);
         }
         return this.http.put(this._url + '/admin/user/detail/' + data._id, data)
+            .map(function (res) { return res.json(); });
+    };
+    PostsService.prototype.putData = function (url, data) {
+        var formData = new FormData();
+        for (var i in data) {
+            formData.append(i, data[i]);
+        }
+        return this.http.put(this._url + "/admin" + url, data)
             .map(function (res) { return res.json(); });
     };
     return PostsService;

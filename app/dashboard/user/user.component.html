@@ -100,8 +100,8 @@
 
                 </div>
                 <div class="card-content">
-                    <div *ngFor="let p of posts ">
-                     <div class="row" >
+                    <div *ngFor="let p of posts " (click)="open($event, p)">
+                     <div class="row" id="{{p._id}}" >
                          <p class="col-md-10" style="text-align: justify;"><img  src="{{p | validate}}" style="width:300px;float:left;
                          margin:0px 10px 10px 0px"/>{{p.description}}</p>
 
@@ -115,7 +115,21 @@
 
                 </div>
             </div>
+              <div class="card" style="display:none">
+                  <div class="card-content">
+                    <button (click)="backToList()">Back to List</button>
+                        <div class="editPost" >
+                            <div><img ></div>
+                            <div style="margin-top:20px;">
+                              <textarea style="width:100%"></textarea>
+                            </div>
+                            <div style="margin-top:20px;">
+                              <button style="width:100%" (click)="updatePost()">update</button>
+                            </div>
 
+                        </div>
+                   </div>
+              </div>
 
         </div>
         <div class="col-md-4">
@@ -172,4 +186,5 @@
         </div>
     </div>
 </div>
+
 </div>

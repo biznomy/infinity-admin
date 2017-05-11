@@ -49,7 +49,7 @@ var UserComponent = (function () {
         console.log(this.name);
         console.log(this.bio);
         this.payload["_id"] = this._id;
-        this.postsService.sendData("", this.payload).subscribe(function (infos) {
+        this.postsService.sendData("/admin/user/detail/", this.payload).subscribe(function (infos) {
         });
         return false;
     };
@@ -57,7 +57,38 @@ var UserComponent = (function () {
         event.preventDefault();
         console.log(empForm.value);
         empForm.value["_id"] = id;
-        this.postsService.sendData("", empForm.value).subscribe(function (infos) {
+        this.postsService.sendData("/admin/user/detail/", empForm.value).subscribe(function (infos) {
+        });
+    };
+    UserComponent.prototype.open = function (e, data) {
+        var $container = $("html,body");
+        var $scrollTo = $('.editPost');
+        $scrollTo.attr("backId", data._id);
+        $scrollTo.find('img').attr("src", data.files.url);
+        $scrollTo.find('textarea').val(data.description);
+        $scrollTo.parent().parent().show();
+        $container.animate({ scrollTop: $scrollTo.offset().top - $container.offset().top, scrollLeft: 0 }, 300);
+    };
+    UserComponent.prototype.backToList = function () {
+        var $container = $("html,body");
+        var $scrollTo = $("#" + $('.editPost').attr("backId"));
+        $container.animate({ scrollTop: $scrollTo.offset().top - $container.offset().top, scrollLeft: 0 }, 300);
+    };
+    UserComponent.prototype.updatePost = function () {
+        var _this = this;
+        var id = $('.editPost').attr("backId");
+        var text = $('.editPost').find('textarea').val();
+        var obj = {};
+        obj["description"] = text;
+        this.postsService.putData("/post/update/" + id, obj).subscribe(function (infos) {
+            _this.postsService.getAdmin("userinfo/" + _this._id).subscribe(function (infos) {
+                _this.posts = infos.posts.data;
+                _this.comments = infos.comments.data;
+                _this.likes = infos.likes.data;
+                _this.postCount = infos.posts.count;
+                _this.likeCount = infos.likes.count;
+                _this.commentCount = infos.comments.count;
+            });
         });
     };
     return UserComponent;

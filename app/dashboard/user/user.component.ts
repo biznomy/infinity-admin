@@ -61,9 +61,9 @@ export class UserComponent implements OnInit{
    console.log(this.name);
    console.log(this.bio)
    this.payload["_id"] = this._id;
-  
-   this.postsService.sendData("",this.payload).subscribe(infos => {
-     
+
+   this.postsService.sendData("/admin/user/detail/",this.payload).subscribe(infos => {
+
    });
    return false;
    }
@@ -71,14 +71,45 @@ export class UserComponent implements OnInit{
     event.preventDefault();
     console.log(empForm.value);
     empForm.value["_id"] = id;
-   
-    this.postsService.sendData("",empForm.value).subscribe(infos => {
-      
+
+    this.postsService.sendData("/admin/user/detail/",empForm.value).subscribe(infos => {
+
     });
    }
    constructor(private route: ActivatedRoute, private location: Location, private postsService : PostsService) {
-
         this._id = route.snapshot.params['_id'];
+     }
+   open(e, data){
+     var $container = $("html,body");
+     var $scrollTo = $('.editPost');
+     $scrollTo.attr("backId",data._id);
+     $scrollTo.find('img').attr("src",data.files.url);
+     $scrollTo.find('textarea').val(data.description);
+     $scrollTo.parent().parent().show();
+     $container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top, scrollLeft: 0},300);
+     }
+     backToList(){
+       var $container = $("html,body");
+       var $scrollTo =$("#"+$('.editPost').attr("backId"));
+        $container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top, scrollLeft: 0},300);
+     }
+     updatePost(){
+       var id = $('.editPost').attr("backId");
+        var text = $('.editPost').find('textarea').val();
+        var obj = {};
+        obj["description"]=text;
+       this.postsService.putData("/post/update/"+id,obj).subscribe(infos => {
+         this.postsService.getAdmin("userinfo/"+this._id).subscribe(infos => {
+               this.posts = infos.posts.data
+               this.comments = infos.comments.data
+               this.likes = infos.likes.data
+               this.postCount = infos.posts.count
+               this.likeCount = infos.likes.count
+               this.commentCount = infos.comments.count
+
+        })
+       });
+
 
 
      }
